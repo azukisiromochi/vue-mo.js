@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <mojs-burst :burst-options="burstOptions" class="hello">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -91,14 +91,39 @@
         >
       </li>
     </ul>
-  </div>
+  </mojs-burst>
 </template>
 
 <script>
+import MojsBurst from "./MojsBurst.vue";
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      burstOptions: {
+        radius: { 25: 75 },
+        count: 10,
+        duration: 2000,
+        children: {
+          // property map - maps over children with mod function
+          shape: ["circle", "polygon"],
+          // property map - maps over children with mod function
+          fill: ["#333", "magenta", "purple"],
+          angle: { 0: 180 },
+          // rand string - generates random value for every child rand( min, max )
+          degreeShift: "rand(-360, 360)",
+          // stagger string( start, step ) for every child
+          delay: "stagger(0, 25)"
+        }
+      }
+    }
+  },
+  components: {
+    MojsBurst
   }
 };
 </script>
