@@ -1,7 +1,10 @@
 import mojs from "@mojs/core";
 
 // Doc: https://mojs.github.io/api/shape/
-const shape = function(extension) {
+const Shape = function(binding) {
+  const extension = binding || {};
+
+  /* eslint-disable no-unused-vars */
   const defaults = {
     /* SHAPE PROPERTIES */
 
@@ -169,12 +172,16 @@ const shape = function(extension) {
     /* Fires when the tween end's animation (regardless progress) */
     onPlaybackComplete() {}
   };
+  /* eslint-enable no-unused-vars */
 
   return new mojs.Shape({ ...defaults, ...extension });
 };
 
 // Doc: https://mojs.github.io/api/burst/
-const burst = function(extension) {
+const Burst = function(binding) {
+  const extension = binding || {};
+
+  /* eslint-disable no-unused-vars */
   const defaults = {
     /* BURST PROPERTIES */
 
@@ -263,15 +270,16 @@ const burst = function(extension) {
       /* (+) TIMELINE PROPERTIES AND CALLBACKS - see Tween API */
     }
   };
+  /* eslint-enable no-unused-vars */
 
   return new mojs.Burst({ ...defaults, ...extension });
 };
 
 const vuemo = {
-  shape,
-  burst
+  Shape,
+  Burst
 };
 export default vuemo;
 
-export const Shape = shape();
-export const Burst = burst();
+export const defaultShape = Shape();
+export const defaultBurst = Burst();

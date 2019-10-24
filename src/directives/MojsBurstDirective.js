@@ -1,13 +1,13 @@
 import Vue from "vue";
-import mojs from "@mojs/core";
+import vuemo from "@/plugins/vuemo.js";
 
 export const MojsBurstDirective = {
   bind: function(el, binding) {
     binding.value.parent = el;
 
-    var burst = new mojs.Burst(binding.value);
+    const burst = vuemo.Burst(binding.value);
 
-    burst.el.style.zIndex = 10;
+    // burst.el.style.zIndex = 10;
     el.style.position = "relative";
 
     el.addEventListener("click", function(e) {

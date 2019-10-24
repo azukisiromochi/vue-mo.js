@@ -1,12 +1,12 @@
 <template>
-  <div v-mojs-burst="options"><slot /></div>
+  <div v-mojs-shape="options" />
 </template>
 
 <script>
-import { MojsBurstDirective } from "@/directives/MojsBurstDirective.js";
+import { MojsShapeDirective } from "@/directives/MojsShapeDirective.js";
 
 export default {
-  name: "MojsBurst",
+  name: "MojsShape",
   props: {
     options: {
       type: Object,
@@ -16,7 +16,7 @@ export default {
     }
   },
   directives: {
-    MojsBurstDirective
+    MojsShapeDirective
   }
 };
 </script>

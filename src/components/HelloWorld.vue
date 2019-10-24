@@ -1,5 +1,6 @@
 <template>
-  <mojs-burst :burst-options="burstOptions" class="hello">
+  <mojs-burst :options="burstOptions" class="hello">
+    <mojs-shape :options="shapeOptions" />
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -95,7 +96,8 @@
 </template>
 
 <script>
-import MojsBurst from "./MojsBurst.vue";
+import MojsBurst from "@/components/MojsBurst.vue";
+import MojsShape from "@/components/MojsShape.vue";
 
 export default {
   name: "HelloWorld",
@@ -119,11 +121,21 @@ export default {
           // stagger string( start, step ) for every child
           delay: "stagger(0, 25)"
         }
+      },
+      shapeOptions: {
+        shape: "zigzag",
+        points: 11,
+        radius: 25,
+        radiusY: 50,
+        left: "25%",
+        fill: "none",
+        stroke: "deeppink",
       }
-    }
+    };
   },
   components: {
-    MojsBurst
+    MojsBurst,
+    MojsShape
   }
 };
 </script>
