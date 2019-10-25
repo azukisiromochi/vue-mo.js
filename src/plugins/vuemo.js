@@ -177,6 +177,37 @@ const Shape = function(binding) {
   return new mojs.Shape({ ...defaults, ...extension });
 };
 
+// Doc: https://mojs.github.io/api/shape-swirl/
+const ShapeSwirl = function(binding) {
+  const extension = binding || {};
+
+  /* eslint-disable no-unused-vars */
+  const defaults = {
+    // ∆ :: Diviation size of sine. {Number}
+    swirlSize: 10,
+
+    // ∆ :: Frequency of sine. {Number}
+    swirlFrequency: 3,
+
+    // ∆ :: Sine length scale. {Number} [ 0..1 ]
+    pathScale: 1,
+
+    // ∆ :: Degree shift for sine path. {Number}
+    degreeShift: 0,
+
+    // [number: -1, 1] :: Directon of sine. {Number} [ -1, 1 ]
+    direction: 1,
+
+    // If shape should follow sinusoidal path. {Boolean}
+    isSwirl: true
+
+    /* (+) SHAPE PROPERTIES AND CALLBACKS - see Shape API */
+  };
+  /* eslint-enable no-unused-vars */
+
+  return new mojs.ShapeSwirl({ ...defaults, ...extension });
+};
+
 // Doc: https://mojs.github.io/api/burst/
 const Burst = function(binding) {
   const extension = binding || {};
@@ -277,6 +308,7 @@ const Burst = function(binding) {
 
 const vuemo = {
   Shape,
+  ShapeSwirl,
   Burst
 };
 export default vuemo;

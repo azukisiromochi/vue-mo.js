@@ -1,6 +1,7 @@
 <template>
   <mojs-burst :options="burstOptions" class="hello">
     <mojs-shape :options="shapeOptions" />
+    <mojs-shape-swirl :options="shapeSwirlOptions" />
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -98,6 +99,7 @@
 <script>
 import MojsBurst from "@/components/MojsBurst.vue";
 import MojsShape from "@/components/MojsShape.vue";
+import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
 
 export default {
   name: "HelloWorld",
@@ -129,13 +131,19 @@ export default {
         radiusY: 50,
         left: "25%",
         fill: "none",
-        stroke: "deeppink",
+        stroke: "deeppink"
+      },
+      shapeSwirlOptions: {
+        x:        { 0: 200 },
+        duration: 2000,
+        repeat: 100
       }
     };
   },
   components: {
     MojsBurst,
-    MojsShape
+    MojsShape,
+    MojsShapeSwirl
   }
 };
 </script>

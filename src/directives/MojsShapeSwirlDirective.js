@@ -1,18 +1,18 @@
 import Vue from "vue";
 import vuemo from "@/plugins/vuemo.js";
 
-export const MojsShapeDirective = {
+export const MojsShapeSwirlDirective = {
   bind: function(el, binding) {
     binding.value.parent = el;
 
-    const shape = vuemo.Shape(binding.value);
-    shape.play();
+    const shapeSwirl = vuemo.ShapeSwirl(binding.value);
+    shapeSwirl.play();
 
     // TODO: いる？
     el.addEventListener("click", function() {
-      shape.replay();
+      shapeSwirl.replay();
     });
   }
 };
 
-Vue.directive("mojs-shape", MojsShapeDirective);
+Vue.directive("mojs-shape-swirl", MojsShapeSwirlDirective);
