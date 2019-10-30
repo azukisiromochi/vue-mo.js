@@ -1,5 +1,6 @@
 <template>
   <mojs-burst :options="burstOptions" class="hello">
+    <mojs-html class="mojs-html" :options="htmlOptions" />
     <mojs-shape :options="shapeOptions" />
     <mojs-shape-swirl :options="shapeSwirlOptions" />
     <h1>{{ msg }}</h1>
@@ -98,6 +99,7 @@
 
 <script>
 import MojsBurst from "@/components/MojsBurst.vue";
+import MojsHtml from "@/components/MojsHtml.vue";
 import MojsShape from "@/components/MojsShape.vue";
 import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
 
@@ -124,6 +126,18 @@ export default {
           delay: "stagger(0, 25)"
         }
       },
+      htmlOptions: {
+        x: { 500: 700,
+        duration: 1000,
+        easing: 'cubic.in',
+        onComplete () { console.log('x property animation complete') }
+       },
+       angleZ: { 0: 360,
+          duration: 1000,
+          delay: 1000,
+          onComplete () { console.log('angleZ animation complete') }
+        }
+      },
       shapeOptions: {
         shape: "zigzag",
         points: 11,
@@ -134,7 +148,7 @@ export default {
         stroke: "deeppink"
       },
       shapeSwirlOptions: {
-        x:        { 0: 200 },
+        x: { 0: 200 },
         duration: 2000,
         repeat: 100
       }
@@ -142,6 +156,7 @@ export default {
   },
   components: {
     MojsBurst,
+    MojsHtml,
     MojsShape,
     MojsShapeSwirl
   }
@@ -163,5 +178,13 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.mojs-html {
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #572B53;
 }
 </style>

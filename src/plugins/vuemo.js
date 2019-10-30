@@ -1,5 +1,130 @@
 import mojs from "@mojs/core";
 
+const Html = function(binding) {
+  const extension = binding || {};
+
+  /* eslint-disable no-unused-vars */
+  const defaults = {
+    // HTMLElement to animate. {String, Object} [selector, HTMLElement]
+    el: null,
+    // ∆ :: translateX property. {String, Number, Object} [value, delta]
+    x: 0,
+    // ∆ :: translateY property. {String, Number, Object} [value, delta]
+    y: 0,
+    // ∆ :: translateZ property. {String, Number, Object} [value, delta]
+    z: 0,
+    // ∆ :: skewX property. {String, Number, Object} [value, delta]
+    skewX: 0,
+    // ∆ :: skewY property. {String, Number, Object} [value, delta]
+    skewY: 0,
+    // ∆ :: rotateX property. {String, Number, Object} [value, delta]
+    angleX: 0,
+    // ∆ :: rotateY property. {String, Number, Object} [value, delta]
+    angleY: 0,
+    // ∆ :: rotateZ property. {String, Number, Object} [value, delta]
+    angleZ: 0,
+    // ∆ :: scale property. {String, Number, Object} [value, delta]
+    scale: 1,
+    // ∆ :: scaleX property. {String, Number, Object} [value, delta]
+    scaleX: 1,
+    // ∆ :: scaleY property. {String, Number, Object} [value, delta]
+    scaleY: 1,
+    // ∆ :: opacity property. {String, Number, Object} [value, delta]
+    opacity: 1,
+
+    /*
+      For other CSS properties please see `Other CSS properties` section.
+    */
+
+    // Custom properties to alter mojs behaviour (see `Teach mojs with customProperties` section). {Object}
+    customProperties: null,
+    // If should be shown before animation starts. {Boolean}
+    isShowStart: true,
+    // If should stay shown after animation ends. {Boolean}
+    isShowEnd: true,
+    // If should trigger composite layer for the module. {Boolean}
+    isForce3d: false,
+    // If should hide module with `transforms` instead of `display`. {Boolean}
+    isSoftHide: true,
+    // If refresh state on subsequent plays. {Boolean}
+    isRefreshState: true,
+    // Context callbacks will be called with. {Object}
+    // callbacksContext: this,
+
+    /* TWEEN PROPERTIES */
+    // Duration {Number}
+    duration: 350,
+    // Delay {Number}
+    delay: 0,
+    // If should repeat after animation finished {Number} *(1)
+    repeat: 0,
+    // Speed of the tween {Number}[0..∞]
+    speed: 1,
+    // If the progress should be flipped on repeat animation end {Boolean}
+    isYoyo: false,
+    // Easing function {String, Function}[ easing name, path coordinates, bezier string, easing function ]
+    easing: "sin.out",
+    // Easing function for backward direction of the tween animation (fallbacks to `easing`) {String, Function}[ easing name, path coordinates, bezier string, easing function ]
+    backwardEasing: null,
+    // properties fro entire timeline
+    timeline: {
+      /* (+) TIMELINE PROPERTIES AND CALLBACKS - see Tween API */
+    },
+
+    /* TWEEN CALLBACKS */
+    /*
+      Fires on every update of the tween in any period (including delay periods). You probably want to use `onUpdate` method instead.
+      @param p {Number} Normal (not eased) progress.
+      @param isForward {Boolean} Direction of the progress.
+      @param isYoyo {Boolean} If in `yoyo` period.
+    */
+    onProgress(p, isForward, isYoyo) {},
+    /*
+      Fires when tween's the entire progress reaches `0` point(doesn't fire in repeat periods).
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onStart(isForward, isYoyo) {},
+    /*
+      Fires when tween's the progress reaches `0` point in normal or repeat period.
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onFirstUpdate(isForward, isYoyo) {},
+    /*
+      Fires on first update of the tween in sufficiently active period (excluding delay periods).
+      @param ep {Number} Eased progress.
+      @param p {Number} Normal (not eased) progress.
+      @param isForward {Boolean} Direction of the progress.
+      @param isYoyo {Boolean} If in `yoyo` period.
+    */
+    onUpdate(ep, p, isForward, isYoyo) {},
+    /*
+      Fires when tween's the progress reaches `1` point in normal or repeat period.
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onRepeatComplete(isForward, isYoyo) {},
+    /*
+      Fires when tween's the entire progress reaches `1` point(doesn't fire in repeat periods).
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onComplete(isForward, isYoyo) {},
+    /* Fires when the `.play` method called and tween isn't in play state yet. */
+    onPlaybackStart() {},
+    /* Fires when the `.pause` method called and tween isn't in pause state yet. */
+    onPlaybackPause() {},
+    /* Fires when the `.stop` method called and tween isn't in stop state yet. */
+    onPlaybackStop() {},
+    /* Fires when the tween end's animation (regardless progress) */
+    onPlaybackComplete() {}
+  };
+  /* eslint-enable no-unused-vars */
+
+  return new mojs.Html({ ...defaults, ...extension });
+};
+
 // Doc: https://mojs.github.io/api/shape/
 const Shape = function(binding) {
   const extension = binding || {};
@@ -307,6 +432,7 @@ const Burst = function(binding) {
 };
 
 const vuemo = {
+  Html,
   Shape,
   ShapeSwirl,
   Burst
