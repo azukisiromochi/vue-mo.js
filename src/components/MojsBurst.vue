@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import { MojsBurstDirective } from "@/directives/MojsBurstDirective.js";
-
 export default {
   name: "MojsBurst",
   props: {
@@ -14,9 +12,6 @@ export default {
         return {};
       }
     }
-  },
-  directives: {
-    MojsBurstDirective
   }
 };
 </script>

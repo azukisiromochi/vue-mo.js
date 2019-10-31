@@ -1,10 +1,8 @@
 <template>
-  <div v-mojs-shape-swirl="options" />
+  <div v-mojs-shape-swirl:[arg]="options" />
 </template>
 
 <script>
-import { MojsShapeSwirlDirective } from "@/directives/MojsShapeSwirlDirective.js";
-
 export default {
   name: "MojsShapeSwirl",
   props: {
@@ -13,10 +11,18 @@ export default {
       default: function() {
         return {};
       }
+    },
+    isReplayWhenClicked: {
+      type: Boolean,
+      default: function() {
+        return false;
+      }
     }
   },
-  directives: {
-    MojsShapeSwirlDirective
+  data() {
+    return {
+      arg: this.isReplayWhenClicked ? "is-replay-when-clicked" : ""
+    };
   }
 };
 </script>

@@ -1,10 +1,8 @@
 <template>
-  <div v-mojs-shape="options" />
+  <div v-mojs-shape:[arg]="options" />
 </template>
 
 <script>
-import { MojsShapeDirective } from "@/directives/MojsShapeDirective.js";
-
 export default {
   name: "MojsShape",
   props: {
@@ -13,10 +11,18 @@ export default {
       default: function() {
         return {};
       }
+    },
+    isReplayWhenClicked: {
+      type: Boolean,
+      default: function() {
+        return false;
+      }
     }
   },
-  directives: {
-    MojsShapeDirective
+  data() {
+    return {
+      arg: this.isReplayWhenClicked ? "is-replay-when-clicked" : ""
+    };
   }
 };
 </script>

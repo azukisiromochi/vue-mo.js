@@ -1,10 +1,8 @@
 <template>
-  <div v-mojs-html="options" />
+  <div v-mojs-html:[arg]="options" />
 </template>
 
 <script>
-import { MojsHtmlDirective } from "@/directives/MojsHtmlDirective.js";
-
 export default {
   name: "MojsHtml",
   props: {
@@ -13,10 +11,18 @@ export default {
       default: function() {
         return {};
       }
+    },
+    isReplayWhenClicked: {
+      type: Boolean,
+      default: function() {
+        return false;
+      }
     }
   },
-  directives: {
-    MojsHtmlDirective
+  data() {
+    return {
+      arg: this.isReplayWhenClicked ? "is-replay-when-clicked" : ""
+    };
   }
 };
 </script>

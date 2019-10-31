@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
+  <mojs-burst id="app" :options="burstOptions">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <Demos msg="✨ vue-mo.js ✨" />
+  </mojs-burst>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Demos from "./components/Demos.vue";
+import MojsBurst from "@/components/MojsBurst.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Demos,
+    MojsBurst
+  },
+  data() {
+    return {
+      burstOptions: {
+        radius: { 25: 75 },
+        count: 10,
+        duration: 2000,
+        children: {
+          // property map - maps over children with mod function
+          shape: ["circle", "polygon"],
+          // property map - maps over children with mod function
+          fill: ["#11CDC5", "#FC2D79", "#F9DD5E"],
+          angle: { 0: 180 },
+          // rand string - generates random value for every child rand( min, max )
+          degreeShift: "rand(-360, 360)",
+          // stagger string( start, step ) for every child
+          delay: "stagger(0, 25)"
+        }
+      }
+    };
   }
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One|Sanchez&display=swap");
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Sanchez", serif;
   text-align: center;
   color: #2c3e50;
+  font-size: 1.5em;
   margin-top: 60px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Fredoka One", cursive;
 }
 </style>

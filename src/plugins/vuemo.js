@@ -431,13 +431,190 @@ const Burst = function(binding) {
   return new mojs.Burst({ ...defaults, ...extension });
 };
 
-const vuemo = {
-  Html,
-  Shape,
-  ShapeSwirl,
-  Burst
-};
-export default vuemo;
+// Doc: https://mojs.github.io/api/tweens/tween.html
+const Tween = function(binding) {
+  const extension = binding || {};
 
-export const defaultShape = Shape();
-export const defaultBurst = Burst();
+  /* eslint-disable no-unused-vars */
+  const defaults = {
+    /* PROPERTIES */
+
+    // Duration {Number}
+    duration: 350,
+    // Delay {Number}
+    delay: 0,
+    // If should repeat after animation finished {Number} *(1)
+    repeat: 0,
+    // Speed of the tween {Number}[0..∞]
+    speed: 1,
+    // If the progress should be flipped on repeat animation end {Boolean}
+    isYoyo: false,
+    // Easing function {String, Function}[ easing name, path coordinates, bezier string, easing function ]
+    easing: "sin.out",
+    // Easing function for backward direction of the tween animation (fallbacks to `easing`) {String, Function}[ easing name, path coordinates, bezier string, easing function ]
+    backwardEasing: null,
+
+    /* CALLBACKS (in order of firing) */
+
+    /*
+      Fires on every when progress needs an update. For instance when tween was finished an remains in `1` progress state, and you will play it again - it will stay in the `1` state until first sufficient update after delay. So the `onRefresh` callback serves you to `refresh` the `1` state with `0` update.
+
+      @param isBefore {Boolean} If `true` - the refresh is before start time.
+    */
+    onRefresh(p, isForward, isYoyo) {},
+
+    /*
+      Fires on every update of the tween in any period (including delay periods). You probably want to use `onUpdate` method instead.
+      @param p {Number} Normal (not eased) progress.
+      @param isForward {Boolean} Direction of the progress.
+      @param isYoyo {Boolean} If in `yoyo` period.
+    */
+    onProgress(p, isForward, isYoyo) {},
+    /*
+      Fires when tween's the entire progress reaches `0` point(doesn't fire in repeat periods).
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onStart(isForward, isYoyo) {},
+    /*
+      Fires when tween's the progress reaches `0` point in normal or repeat period.
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onFirstUpdate(isForward, isYoyo) {},
+    /*
+      Fires on first update of the tween in sufficiently active period (excluding delay periods).
+      @param ep {Number} Eased progress.
+      @param p {Number} Normal (not eased) progress.
+      @param isForward {Boolean} Direction of the progress.
+      @param isYoyo {Boolean} If in `yoyo` period.
+    */
+    onUpdate(ep, p, isForward, isYoyo) {},
+    /*
+      Fires when tween's the progress reaches `1` point in normal or repeat period.
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onRepeatComplete(isForward, isYoyo) {},
+    /*
+      Fires when tween's the entire progress reaches `1` point(doesn't fire in repeat periods).
+      @param isForward {Boolean} If progress moves in forward direction.
+      @param isYoyo {Boolean} If progress inside `yoyo` flip period.
+    */
+    onComplete(isForward, isYoyo) {},
+    /* Fires when the `.play` method called and tween isn't in play state yet. */
+    onPlaybackStart() {},
+    /* Fires when the `.pause` method called and tween isn't in pause state yet. */
+    onPlaybackPause() {},
+    /* Fires when the `.stop` method called and tween isn't in stop state yet. */
+    onPlaybackStop() {},
+    /* Fires when the tween end's animation (regardless progress) */
+    onPlaybackComplete() {}
+  };
+  /* eslint-enable no-unused-vars */
+
+  return new mojs.Tween({ ...defaults, ...extension });
+};
+
+// Doc: https://mojs.github.io/api/tweens/timeline.html
+const Timeline = function(binding) {
+  const extension = binding || {};
+
+  /* eslint-disable no-unused-vars */
+  const defaults = {
+    /* PROPERTIES */
+
+    /* (+) TWEEN PROPERTIES AND CALLBACKS - see Tween API */
+
+    /*
+      Note: The timeline inherits all tween properties, callbacks and public methods excluding `duration` property. The `duration` property is computed automatically regarding children tweens and timelines.
+    */
+    duration: null
+  };
+  /* eslint-enable no-unused-vars */
+
+  return new mojs.Timeline({ ...defaults, ...extension });
+};
+
+const MojsHtmlDirective = {
+  bind: function(el, binding) {
+    binding.value.el = el;
+
+    const html = new mojs.Html(binding.value);
+    html.play();
+
+    el.addEventListener("click", function() {
+      if (binding.arg === "is-replay-when-clicked") {
+        html.replay();
+      }
+    });
+  }
+};
+
+const MojsShapeDirective = {
+  bind: function(el, binding) {
+    binding.value.parent = el;
+
+    const shape = new mojs.Shape(binding.value);
+    shape.play();
+
+    el.addEventListener("click", function() {
+      if (binding.arg === "is-replay-when-clicked") {
+        shape.replay();
+      }
+    });
+  }
+};
+
+const MojsShapeSwirlDirective = {
+  bind: function(el, binding) {
+    binding.value.parent = el;
+
+    const shapeSwirl = new mojs.ShapeSwirl(binding.value);
+    shapeSwirl.play();
+
+    el.addEventListener("click", function() {
+      if (binding.arg === "is-replay-when-clicked") {
+        shapeSwirl.replay();
+      }
+    });
+  }
+};
+
+const MojsBurstDirective = {
+  bind: function(el, binding) {
+    binding.value.parent = el;
+
+    const burst = new mojs.Burst(binding.value);
+
+    // burst.el.style.zIndex = 10;
+    el.style.position = "relative";
+
+    el.addEventListener("click", function(e) {
+      const left = e.pageX - el.offsetLeft;
+      const top = e.pageY - el.offsetTop;
+      burst.tune({ left, top }).replay();
+    });
+  }
+};
+
+/* eslint-disable no-unused-vars */
+const Vuemo = {
+  install: function(Vue, options) {
+    Vue.prototype.$vuemo = {
+      Html,
+      Shape,
+      ShapeSwirl,
+      Burst,
+      Tween,
+      Timeline,
+      stagger: mojs.stagger
+    };
+
+    Vue.directive("mojs-html", MojsHtmlDirective);
+    Vue.directive("mojs-shape", MojsShapeDirective);
+    Vue.directive("mojs-shape-swirl", MojsShapeSwirlDirective);
+    Vue.directive("mojs-burst", MojsBurstDirective);
+  }
+};
+export default Vuemo;
