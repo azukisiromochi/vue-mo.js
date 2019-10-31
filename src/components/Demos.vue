@@ -39,7 +39,11 @@ Vue.use(Vuemo);</pre
     <p>
       hoge hoge hoge
     </p>
-    <div ref="burstParent" class="play-ground burst-parent" @clisk.native="explosion">
+    <div
+      ref="burstParent"
+      class="play-ground burst-parent"
+      v-on:click="explosion"
+    >
       <p>
         Click! Click!! Click!!!
       </p>
@@ -93,9 +97,6 @@ export default {
           delay: 1000
         }
       },
-      burstOptions: {
-
-      },
       zigzagOptions: {
         shape: "zigzag",
         points: 11,
@@ -138,52 +139,54 @@ export default {
   mounted() {
     // Burst Demos
     const COLORS = {
-      RED:      '#FD5061',
-      YELLOW:   '#FFCEA5',
-      BLACK:    '#29363B',
-      WHITE:    'white',
-      VINOUS:   '#A50710'
+      RED: "#FD5061",
+      YELLOW: "#FFCEA5",
+      BLACK: "#29363B",
+      VINOUS: "#A50710"
     };
 
     this.burst1 = this.$vuemo.Burst({
       parent: this.$refs.burstParent,
-      left: 0, top: 0,
-      count:    5,
-      radius:   { 50: 250 },
+      left: 0,
+      top: 0,
+      count: 5,
+      radius: { 50: 250 },
       children: {
-        fill:   'white',
-        shape:  'line',
-        stroke: [ COLORS.WHITE, COLORS.VINOUS ],
+        fill: "white",
+        shape: "line",
+        stroke: [COLORS.BLACK, COLORS.VINOUS],
         strokeWidth: 12,
-        radius: 'rand(30, 60)',
+        radius: "rand(30, 60)",
         radiusY: 0,
         scale: { 1: 0 },
-        pathScale: 'rand(.5, 1)',
-        degreeShift: 'rand(-360, 360)',
-        isForce3d: true,
+        pathScale: "rand(.5, 1)",
+        degreeShift: "rand(-360, 360)",
+        isForce3d: true
       }
     });
 
     this.burst2 = this.$vuemo.Burst({
       parent: this.$refs.burstParent,
-      top: 0, left: 0,
-      count:  3,
+      top: 0,
+      left: 0,
+      count: 3,
       radius: { 0: 250 },
       children: {
-        shape:      [ 'circle', 'rect' ],
-        points:     5,
-        fill:       [ COLORS.WHITE, COLORS.VINOUS ],
-        radius:     'rand(30, 60)',
-        scale:      { 1: 0 },
-        pathScale:  'rand(.5, 1)',
-        isForce3d:  true
+        shape: ["circle", "rect"],
+        points: 5,
+        fill: [COLORS.BLACK, COLORS.VINOUS],
+        radius: "rand(30, 60)",
+        scale: { 1: 0 },
+        pathScale: "rand(.5, 1)",
+        isForce3d: true
       }
     });
 
     const CIRCLE_OPTS = {
-      left: 0, top: 0,
-      fill:     COLORS.WHITE,
-      scale:    { .2: 1 },
+      left: 0,
+      top: 0,
+      fill: COLORS.BLACK,
+      scale: { 0.2: 1 },
       opacity: { 1: 0 },
       isForce3d: true,
       isShowEnd: false
@@ -191,18 +194,17 @@ export default {
 
     this.circle1 = this.$vuemo.Shape({
       parent: this.$refs.burstParent,
-        ...CIRCLE_OPTS,
-        radius:   200,
-      });
+      ...CIRCLE_OPTS,
+      radius: 200
+    });
 
     this.circle2 = this.$vuemo.Shape({
       parent: this.$refs.burstParent,
       ...CIRCLE_OPTS,
-      radius:   240,
-      easing: 'cubic.out',
-      delay: 150,
+      radius: 240,
+      easing: "cubic.out",
+      delay: 150
     });
-    console.log('here!');
 
     // Timeline Demo
     const circle = this.$vuemo.Shape({
@@ -256,24 +258,21 @@ export default {
   },
   methods: {
     explosion: function(e) {
-      console.log('here!');
+      const left = e.pageX - this.$refs.burstParent.offsetLeft;
+      const top = e.pageY - this.$refs.burstParent.offsetTop;
       this.burst1
-        .tune({ x: e.pageX, y: e.pageY })
+        .tune({ left, top })
         .generate()
         .replay();
 
       this.burst2
-        .tune({ x: e.pageX, y: e.pageY })
+        .tune({ left, top })
         .generate()
         .replay();
 
-      this.circle1
-        .tune({ x: e.pageX, y: e.pageY })
-        .replay();
+      this.circle1.tune({ left, top }).replay();
 
-      this.circle2
-        .tune({ x: e.pageX, y: e.pageY })
-        .replay();
+      this.circle2.tune({ left, top }).replay();
     }
   },
   components: {
