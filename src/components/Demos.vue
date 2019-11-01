@@ -24,10 +24,13 @@ import Vuemo from 'vue-mo.js';
 Vue.use(Vuemo);</pre
     >
     <h3>🧹 Documentation</h3>
-    <h5>Html</h5>
+    <h4>⭐ Html</h4>
+    <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      🔗 <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener">Mo.js References</a>
     </p>
+    <h5>🔖 Tutorials</h5>
+    <h5>🔖 Demos</h5>
     <div class="play-ground">
       <mojs-html
         class="mojs-html"
@@ -35,7 +38,7 @@ Vue.use(Vuemo);</pre
         :is-replay-when-clicked="true"
       />
     </div>
-    <h5>Burst</h5>
+    <h4>⭐ Burst</h4>
     <p>
       hoge hoge hoge
     </p>
@@ -45,10 +48,10 @@ Vue.use(Vuemo);</pre
       v-on:click="explosion"
     >
       <p>
-        Click! Click!! Click!!!
+        エクスプロージョン！！
       </p>
     </div>
-    <h5>Shape</h5>
+    <h4>⭐ Shape</h4>
     <p>
       hoge hoge hoge
     </p>
@@ -57,14 +60,14 @@ Vue.use(Vuemo);</pre
       <mojs-shape :options="curveOptions" />
       <mojs-shape :options="crossOptions" />
     </div>
-    <h5>ShapeSwirl</h5>
+    <h4>⭐ ShapeSwirl</h4>
     <p>
       hoge hoge hoge
     </p>
     <div class="play-ground">
       <mojs-shape-swirl :options="shapeSwirlOptions" />
     </div>
-    <h5>Timeline</h5>
+    <h4>⭐ Timeline</h4>
     <p>
       hoge hoge hoge
     </p>
@@ -307,7 +310,7 @@ pre {
   padding-left: 80px;
   width: 720px;
   background: #2b062a;
-  color: #f8f8f8;
+  color: #f64040;
   border-radius: 6px;
   filter: drop-shadow(5px 5px 10px #666);
 }
@@ -328,11 +331,14 @@ pre {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: #572b53;
+  background: #41b883;
 }
 
 .burst-parent {
   z-index: 20;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
