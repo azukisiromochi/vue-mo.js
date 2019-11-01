@@ -1,7 +1,9 @@
 <template>
   <mojs-burst id="app" :options="burstOptions">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Demos msg="✨ vue-mo.js ✨" />
+    <div class="container">
+      <Demos msg="✨ vue-mo.js ✨" />
+    </div>
   </mojs-burst>
 </template>
 
@@ -49,11 +51,25 @@ export default {
   margin-top: 60px;
 }
 
+.container {
+  text-align: left;
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
   font-family: "Fredoka One", cursive;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
 }
 </style>

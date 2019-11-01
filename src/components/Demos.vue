@@ -27,9 +27,13 @@ Vue.use(Vuemo);</pre
     <h4>⭐ Html</h4>
     <h5>🔖 References</h5>
     <p>
-      🔗 <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener">Mo.js References</a>
+      Read Mo.js's <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener">Html References</a>
     </p>
     <h5>🔖 Tutorials</h5>
+    <p>
+      Using directive:
+    </p>
+    <pre>&lt;mojs-html :options="htmlOptions" :is-replay-when-clicked="true" /&gt;</pre>
     <h5>🔖 Demos</h5>
     <div class="play-ground">
       <mojs-html
