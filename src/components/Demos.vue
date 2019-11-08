@@ -20,28 +20,120 @@
       Using Vue.js:
     </p>
     <pre>
-import Vuemo from 'vue-mo.js';
-Vue.use(Vuemo);</pre
+import Vuemo from 'vue-mo.js'
+Vue.use(Vuemo)</pre
     >
     <h3>🧹 Documentation</h3>
     <h4>⭐ Html</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener">Html References</a>
+      Read Mo.js's
+      <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener"
+        >Html References</a
+      >
     </p>
-    <h5>🔖 Tutorials</h5>
-    <p>
-      Using directive:
-    </p>
-    <pre>&lt;mojs-html :options="htmlOptions" :is-replay-when-clicked="true" /&gt;</pre>
     <h5>🔖 Demos</h5>
     <div class="play-ground">
       <mojs-html
         class="mojs-html"
         :options="htmlOptions"
         :is-replay-when-clicked="true"
-      />
+      ></mojs-html>
     </div>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="vuemoElement" v-on:click="replay" /div&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      html: null
+    }
+  },
+  mounted() {
+    this.html = this.$vuemo.Html({
+      el: this.$refs.vuemoElement,
+      x: {
+        240: 720,
+        duration: 1000,
+        easing: "cubic.in"
+      },
+      y: 100,
+      angleZ: {
+        0: 360,
+        duration: 1000,
+        delay: 1000
+      }
+    })
+  },
+  methods: {
+    replay: function() {
+      this.html.replay()
+    }
+  }
+}</pre
+    >
+    <strong>Using custom components</strong>
+    <p>Template:</p>
+    <pre>
+&lt;mojs-html :options="htmlOptions" :is-replay-when-clicked="true" /&gt;</pre
+    >
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      htmlOptions: {
+        x: {
+          240: 720,
+          duration: 1000,
+          easing: "cubic.in"
+        },
+        y: 100,
+        angleZ: {
+          0: 360,
+          duration: 1000,
+          delay: 1000
+        }
+      }
+    }
+  },
+  components: {
+    MojsHtml
+  }
+}</pre
+    >
+    <strong>Using custom directives</strong>
+    <p>Template:</p>
+    <pre>&lt;div v-mojs-html:[arg]="htmlOptions" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      htmlOptions: {
+        x: {
+          240: 720,
+          duration: 1000,
+          easing: "cubic.in"
+        },
+        y: 100,
+        angleZ: {
+          0: 360,
+          duration: 1000,
+          delay: 1000
+        }
+      },
+      arg: 'is-replay-when-clicked'
+    }
+  },
+  components: {
+    MojsHtml
+  }
+}</pre
+    >
     <h4>⭐ Burst</h4>
     <p>
       hoge hoge hoge
@@ -76,6 +168,13 @@ Vue.use(Vuemo);</pre
       hoge hoge hoge
     </p>
     <div ref="timelineParent" class="play-ground"></div>
+    <h4>⭐ Star</h4>
+    <p>
+      hoge hoge hoge
+    </p>
+    <mojs-starry-night
+      class="play-ground starry-night-parent"
+    ></mojs-starry-night>
   </div>
 </template>
 
@@ -83,6 +182,7 @@ Vue.use(Vuemo);</pre
 import MojsHtml from "@/components/MojsHtml.vue";
 import MojsShape from "@/components/MojsShape.vue";
 import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
+import MojsStarryNight from "@/components/MojsStarryNight.vue";
 
 export default {
   name: "HelloWorld",
@@ -285,23 +385,21 @@ export default {
   components: {
     MojsHtml,
     MojsShape,
-    MojsShapeSwirl
+    MojsShapeSwirl,
+    MojsStarryNight
   }
 };
 </script>
 
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin: 100px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+strong {
+  border-bottom: solid 3px #f64040;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 a {
   color: #42b983;
 }
@@ -311,10 +409,12 @@ pre {
   text-align: left;
   margin: 20px auto;
   padding: 20px;
-  padding-left: 80px;
+  padding-left: 60px;
   width: 720px;
   background: #2b062a;
   color: #f64040;
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-size: 0.7em;
   border-radius: 6px;
   filter: drop-shadow(5px 5px 10px #666);
 }
@@ -344,5 +444,10 @@ pre {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.starry-night-parent {
+  z-index: 20;
+  cursor: pointer;
 }
 </style>

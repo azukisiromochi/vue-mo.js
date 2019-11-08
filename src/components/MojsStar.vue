@@ -1,10 +1,10 @@
 <template>
-  <div v-mojs-html:[arg]="options"><slot /></div>
+  <div v-mojs-star:[arg]="options" />
 </template>
 
 <script>
 export default {
-  name: "MojsHtml",
+  name: "MojsStar",
   props: {
     options: {
       type: Object,
