@@ -24,6 +24,7 @@ import Vuemo from 'vue-mo.js'
 Vue.use(Vuemo)</pre
     >
     <h3>🧹 Documentation</h3>
+
     <h4>⭐ Html</h4>
     <h5>🔖 References</h5>
     <p>
@@ -43,7 +44,7 @@ Vue.use(Vuemo)</pre
     <h5>🔖 Tutorials</h5>
     <strong>Using vue-mo.js source code for smaller bundles</strong>
     <p>Template:</p>
-    <pre>&lt;div ref="vuemoElement" v-on:click="replay" /div&gt;</pre>
+    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
     <p>Script:</p>
     <pre>
 export default {
@@ -82,6 +83,7 @@ export default {
     >
     <p>Script:</p>
     <pre>
+import MojsHtml from "mojs-html"
 export default {
   data() {
     return {
@@ -128,16 +130,19 @@ export default {
       },
       arg: 'is-replay-when-clicked'
     }
-  },
-  components: {
-    MojsHtml
   }
 }</pre
     >
+
     <h4>⭐ Burst</h4>
+    <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      Read Mo.js's
+      <a href="https://mojs.github.io/api/burst/" target="_blank" rel="noopener"
+        >Burst References</a
+      >
     </p>
+    <h5>🔖 Demos</h5>
     <div
       ref="burstParent"
       class="play-ground burst-parent"
@@ -147,26 +152,278 @@ export default {
         エクスプロージョン！！
       </p>
     </div>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      burst: null
+    }
+  },
+  mounted() {
+    this.burst = this.$vuemo.Burst({
+      parent: this.$refs.vuemoElement,
+      radius: { 25: 75 },
+      count: 10,
+      duration: 2000,
+      children: {
+        shape: ["circle", "polygon"],
+        fill: ["#11CDC5", "#FC2D79", "#F9DD5E"],
+        angle: { 0: 180 },
+        degreeShift: "rand(-360, 360)",
+        delay: "stagger(0, 25)"
+      }
+    })
+  },
+  methods: {
+    replay: function() {
+      this.burst.replay()
+    }
+  }
+}</pre
+    >
+    <strong>Using custom components</strong>
+    <p>Template:</p>
+    <pre>
+&lt;mojs-burst :options="burstOptions" :is-replay-when-clicked="true" /&gt;</pre
+    >
+    <p>Script:</p>
+    <pre>
+import MojsBurst from "mojs-burst"
+export default {
+  data() {
+    return {
+      burstOptions: {
+        radius: { 25: 75 },
+        count: 10,
+        duration: 2000,
+        children: {
+          shape: ["circle", "polygon"],
+          fill: ["#11CDC5", "#FC2D79", "#F9DD5E"],
+          angle: { 0: 180 },
+          degreeShift: "rand(-360, 360)",
+          delay: "stagger(0, 25)"
+        }
+      }
+    }
+  },
+  components: {
+    MojsBurst
+  }
+}</pre
+    >
+    <strong>Using custom directives</strong>
+    <p>Template:</p>
+    <pre>&lt;div v-mojs-burst:[arg]="burstOptions" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      burstOptions: {
+        radius: { 25: 75 },
+        count: 10,
+        duration: 2000,
+        children: {
+          shape: ["circle", "polygon"],
+          fill: ["#11CDC5", "#FC2D79", "#F9DD5E"],
+          angle: { 0: 180 },
+          degreeShift: "rand(-360, 360)",
+          delay: "stagger(0, 25)"
+        }
+      },
+      arg: 'is-replay-when-clicked'
+    }
+  }
+}</pre
+    >
+
     <h4>⭐ Shape</h4>
+    <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      Read Mo.js's
+      <a href="https://mojs.github.io/api/shape/" target="_blank" rel="noopener"
+        >Shape References</a
+      >
     </p>
+    <h5>🔖 Demos</h5>
     <div class="play-ground">
       <mojs-shape :options="zigzagOptions" />
       <mojs-shape :options="curveOptions" />
       <mojs-shape :options="crossOptions" />
     </div>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      shape: null
+    }
+  },
+  mounted() {
+    this.shape = this.$vuemo.Shape({
+      parent: this.$refs.vuemoElement,
+      shape: "circle",
+      scale: { 0: 1 },
+      left: "25%",
+      fill: { cyan: "yellow" },
+      radius: 25,
+
+      duration: 2000
+    })
+  },
+  methods: {
+    replay: function() {
+      this.shape.replay()
+    }
+  }
+}</pre
+    >
+    <strong>Using custom components</strong>
+    <p>Template:</p>
+    <pre>
+&lt;mojs-shape :options="shapeOptions" :is-replay-when-clicked="true" /&gt;</pre
+    >
+    <p>Script:</p>
+    <pre>
+import MojsShape from "mojs-shape"
+export default {
+  data() {
+    return {
+      shapeOptions: {
+        shape: "circle",
+        scale: { 0: 1 },
+        left: "25%",
+        fill: { cyan: "yellow" },
+        radius: 25,
+
+        duration: 2000
+      }
+    }
+  },
+  components: {
+    MojsShape
+  }
+}</pre
+    >
+    <strong>Using custom directives</strong>
+    <p>Template:</p>
+    <pre>&lt;div v-mojs-shape:[arg]="shapeOptions" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      shapeOptions: {
+      shape: "circle",
+      scale: { 0: 1 },
+      left: "25%",
+      fill: { cyan: "yellow" },
+      radius: 25,
+
+      duration: 2000
+    },
+      arg: 'is-replay-when-clicked'
+    }
+  }
+}</pre
+    >
+
     <h4>⭐ ShapeSwirl</h4>
+    <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      Read Mo.js's
+      <a href="https://mojs.github.io/api/shape-swirl/" target="_blank" rel="noopener"
+        >ShapeSwirl References</a
+      >
     </p>
+    <h5>🔖 Demos</h5>
     <div class="play-ground">
       <mojs-shape-swirl :options="shapeSwirlOptions" />
     </div>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      shapeSwirl: null
+    }
+  },
+  mounted() {
+    this.shapeSwirl = this.$vuemo.ShapeSwirl({
+      parent: this.$refs.vuemoElement,
+      x: { 0: 200 },
+      duration: 2000
+    })
+  },
+  methods: {
+    replay: function() {
+      this.shapeSwirl.replay()
+    }
+  }
+}</pre
+    >
+    <strong>Using custom components</strong>
+    <p>Template:</p>
+    <pre>
+&lt;mojs-shape-swirl :options="shapeSwirlOptions" :is-replay-when-clicked="true" /&gt;</pre
+    >
+    <p>Script:</p>
+    <pre>
+import MojsShapeSwirl from "mojs-shape-swirl"
+export default {
+  data() {
+    return {
+      shapeSwirlOptions: {
+        x: { 0: 200 },
+        duration: 2000
+      }
+    }
+  },
+  components: {
+    MojsShapeSwirl
+  }
+}</pre
+    >
+    <strong>Using custom directives</strong>
+    <p>Template:</p>
+    <pre>&lt;div v-mojs-shape-swirl:[arg]="shapeSwirlOptions" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  data() {
+    return {
+      shapeSwirlOptions: {
+        x: { 0: 200 },
+        duration: 2000
+      },
+      arg: 'is-replay-when-clicked'
+    }
+  }
+}</pre
+    >
+
     <h4>⭐ Timeline</h4>
+    <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      Read Mo.js's
+      <a href="https://mojs.github.io/api/tweens/timeline.html" target="_blank" rel="noopener"
+        >Timeline References</a
+      >
     </p>
+    <h5>🔖 Demos</h5>
     <div ref="timelineParent" class="play-ground"></div>
     <h4>⭐ Star</h4>
     <p>
