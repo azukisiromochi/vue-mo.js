@@ -1,6 +1,6 @@
 <template>
   <mojs-burst id="app" :options="burstOptions">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img class="logo" alt="Vue logo" src="./assets/logo.png" />
     <div class="container">
       <Demos msg="✨ vue-mo.js ✨" />
     </div>
@@ -48,7 +48,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   font-size: 1.5em;
-  margin-top: 60px;
 }
 
 .container {
@@ -56,6 +55,10 @@ export default {
   max-width: 40em;
   margin: 0 auto;
   padding: 0 4%;
+}
+
+.logo {
+  margin-top: 60px;
 }
 
 h1,
