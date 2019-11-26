@@ -1,6 +1,6 @@
 <template>
   <div class="demos">
-    <h1>{{ msg }}</h1>
+    <h1>✨ vue-mo.js ✨</h1>
     <p>
       A small wrapper for integrating
       <a href="https://mojs.github.io/" target="_blank" rel="noopener">Mo.js</a>
@@ -42,9 +42,11 @@ Vue.use(Vuemo)</pre
       ></mojs-html>
     </div>
     <h5>🔖 Tutorials</h5>
-    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <pre>
+&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre
+    >
     <p>Script:</p>
     <pre>
 export default {
@@ -76,7 +78,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom components</strong>
+    <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
 &lt;mojs-html :options="htmlOptions" :is-replay-when-clicked="true" /&gt;</pre
@@ -107,7 +109,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom directives</strong>
+    <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
     <pre>&lt;div v-mojs-html:[arg]="htmlOptions" /&gt;</pre>
     <p>Script:</p>
@@ -153,9 +155,11 @@ export default {
       </p>
     </div>
     <h5>🔖 Tutorials</h5>
-    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <pre>
+&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre
+    >
     <p>Script:</p>
     <pre>
 export default {
@@ -186,7 +190,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom components</strong>
+    <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
 &lt;mojs-burst :options="burstOptions" :is-replay-when-clicked="true" /&gt;</pre
@@ -216,7 +220,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom directives</strong>
+    <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
     <pre>&lt;div v-mojs-burst:[arg]="burstOptions" /&gt;</pre>
     <p>Script:</p>
@@ -257,9 +261,11 @@ export default {
       <mojs-shape :options="crossOptions" />
     </div>
     <h5>🔖 Tutorials</h5>
-    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <pre>
+&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre
+    >
     <p>Script:</p>
     <pre>
 export default {
@@ -287,7 +293,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom components</strong>
+    <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
 &lt;mojs-shape :options="shapeOptions" :is-replay-when-clicked="true" /&gt;</pre
@@ -314,7 +320,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom directives</strong>
+    <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
     <pre>&lt;div v-mojs-shape:[arg]="shapeOptions" /&gt;</pre>
     <p>Script:</p>
@@ -341,7 +347,10 @@ export default {
     <h5>🔖 References</h5>
     <p>
       Read Mo.js's
-      <a href="https://mojs.github.io/api/shape-swirl/" target="_blank" rel="noopener"
+      <a
+        href="https://mojs.github.io/api/shape-swirl/"
+        target="_blank"
+        rel="noopener"
         >ShapeSwirl References</a
       >
     </p>
@@ -350,9 +359,11 @@ export default {
       <mojs-shape-swirl :options="shapeSwirlOptions" />
     </div>
     <h5>🔖 Tutorials</h5>
-    <strong>Using vue-mo.js source code for smaller bundles</strong>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre>
+    <pre>
+&lt;div ref="vuemoElement" v-on:click="replay" class="any-style" /&gt;</pre
+    >
     <p>Script:</p>
     <pre>
 export default {
@@ -375,7 +386,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom components</strong>
+    <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
 &lt;mojs-shape-swirl :options="shapeSwirlOptions" :is-replay-when-clicked="true" /&gt;</pre
@@ -397,7 +408,7 @@ export default {
   }
 }</pre
     >
-    <strong>Using custom directives</strong>
+    <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
     <pre>&lt;div v-mojs-shape-swirl:[arg]="shapeSwirlOptions" /&gt;</pre>
     <p>Script:</p>
@@ -419,19 +430,107 @@ export default {
     <h5>🔖 References</h5>
     <p>
       Read Mo.js's
-      <a href="https://mojs.github.io/api/tweens/timeline.html" target="_blank" rel="noopener"
+      <a
+        href="https://mojs.github.io/api/tweens/timeline.html"
+        target="_blank"
+        rel="noopener"
         >Timeline References</a
       >
     </p>
     <h5>🔖 Demos</h5>
     <div ref="timelineParent" class="play-ground"></div>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="timelineParent" class="any-style" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  mounted() {
+    const circle = this.$vuemo.Shape({
+      parent: this.$refs.timelineParent,
+      shape: "circle",
+      scale: { 0: 1 },
+      left: "25%",
+      fill: { cyan: "yellow" },
+      radius: 25,
+
+      duration: 2000
+    })
+
+    const rect = this.$vuemo.Shape({
+      parent: this.$refs.timelineParent,
+      shape: "rect",
+      left: "50%",
+      fill: "none",
+      radius: 20,
+      stroke: { "rgba(0,255,255, 1)": "magenta" },
+      strokeWidth: { 10: 0 },
+      strokeDasharray: "100%",
+      strokeDashoffset: { "-100%": "100%" },
+      angle: { 0: 180 },
+
+      duration: 2000
+    })
+
+    const polygon = this.$vuemo.Shape({
+      parent: this.$refs.timelineParent,
+      shape: "polygon",
+      points: 5,
+      left: "75%",
+      fill: { deeppink: "#00F87F" },
+      x: { "rand(-100%, -200%)": 0 },
+      angle: { 0: "rand(0, 360)" },
+      radius: 25,
+
+      duration: 2000
+    })
+
+    this.$vuemo
+      .Timeline({
+        delay: 1000,
+        repeat: 999
+      })
+      .add(circle)
+      .append(rect)
+      .append(polygon)
+      .play()
+  }
+}</pre
+    >
+
     <h4>⭐ Star</h4>
+    <h5>🔖 References</h5>
     <p>
       hoge hoge hoge
     </p>
     <mojs-starry-night
       class="play-ground starry-night-parent"
     ></mojs-starry-night>
+    <h5>🔖 Tutorials</h5>
+    <strong>Using vue-mo.js source code for smaller bundles 🚅</strong>
+    <p>Template:</p>
+    <pre>&lt;div ref="starParent" class="any-style" /&gt;</pre>
+    <p>Script:</p>
+    <pre>
+export default {
+  mounted() {
+    this.$vuemo.Star({
+      parent: this.$refs.starParent
+    })
+    .play()
+  }
+}</pre
+    >
+    <strong>Using custom directives 🚅</strong>
+    <p>Template:</p>
+    <pre>
+&lt;button
+  type=button
+  v-mojs-star-burst="{ burstShape: 'star' }" &gt;
+  ⭐Star Burst⭐
+&lt;/button&gt;</pre
+    >
   </div>
 </template>
 
@@ -442,10 +541,7 @@ import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
 import MojsStarryNight from "@/components/MojsStarryNight.vue";
 
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String
-  },
+  name: "Demos",
   data() {
     return {
       htmlOptions: {

@@ -2,7 +2,7 @@
   <mojs-burst id="app" :options="burstOptions">
     <img class="logo" alt="Vue logo" src="./assets/logo.png" />
     <div class="container">
-      <Demos msg="✨ vue-mo.js ✨" />
+      <Demos />
     </div>
   </mojs-burst>
 </template>

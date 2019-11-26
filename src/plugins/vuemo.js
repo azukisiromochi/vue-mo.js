@@ -581,9 +581,10 @@ const Star = function(binding) {
 
 const MojsHtmlDirective = {
   bind: function(el, binding) {
-    binding.value.el = el;
+    const options = binding.value || {};
+    options.el = el;
 
-    const html = new mojs.Html(binding.value);
+    const html = new mojs.Html(options);
     html.play();
 
     el.addEventListener("click", function() {
@@ -596,9 +597,10 @@ const MojsHtmlDirective = {
 
 const MojsShapeDirective = {
   bind: function(el, binding) {
-    binding.value.parent = el;
+    const options = binding.value || {};
+    options.parent = el;
 
-    const shape = new mojs.Shape(binding.value);
+    const shape = new mojs.Shape(options);
     shape.play();
 
     el.addEventListener("click", function() {
@@ -611,9 +613,10 @@ const MojsShapeDirective = {
 
 const MojsShapeSwirlDirective = {
   bind: function(el, binding) {
-    binding.value.parent = el;
+    const options = binding.value || {};
+    options.parent = el;
 
-    const shapeSwirl = new mojs.ShapeSwirl(binding.value);
+    const shapeSwirl = new mojs.ShapeSwirl(options);
     shapeSwirl.play();
 
     el.addEventListener("click", function() {
@@ -626,12 +629,13 @@ const MojsShapeSwirlDirective = {
 
 const MojsBurstDirective = {
   bind: function(el, binding) {
-    binding.value.parent = el;
+    const options = binding.value || {};
+    options.parent = el;
 
-    const burst = new mojs.Burst(binding.value);
+    const burst = new mojs.Burst(options);
 
     // burst.el.style.zIndex = 10;
-    el.style.position = "relative";
+    // el.style.position = "relative";
 
     el.addEventListener("click", function(e) {
       const left = e.pageX - el.offsetLeft;
@@ -643,9 +647,10 @@ const MojsBurstDirective = {
 
 const MojsStarDirective = {
   bind: function(el, binding) {
-    binding.value.parent = el;
+    const options = binding.value || {};
+    options.parent = el;
 
-    const star = Star(binding.value);
+    const star = Star(options);
     star.play();
 
     el.addEventListener("click", function() {
@@ -655,6 +660,84 @@ const MojsStarDirective = {
     });
   }
 };
+
+const MojsStarBurstDirective = {
+  bind: function(el, binding) {
+    const options = binding.value || {};
+    options.parent = el;
+
+    options.burstShape = options.burstShape || "line";
+
+    const star = Star(options);
+
+    const circle = new mojs.Shape({
+      parent: el,
+      left: 0,
+      top: 0,
+      stroke: "#FF9C00",
+      strokeWidth: { [2 * RADIUS]: 0 },
+      fill: "none",
+      scale: { 0: 1, easing: "quad.out" },
+      radius: RADIUS,
+      duration: 450
+    });
+
+    let burstChildren = {
+      shape: "line",
+      radius: RADIUS / 7.3,
+      scale: 1,
+      stroke: "#FD7932",
+      strokeDasharray: "100%",
+      strokeDashoffset: { "-100%": "100%" },
+      degreeShift: "stagger(0,-5)",
+      duration: 700,
+      delay: 200,
+      easing: "quad.out"
+    };
+    if (options.burstShape === "star") {
+      burstChildren = {
+        shape: "star",
+        radius: RADIUS / 2.2,
+        fill: "#FD7932",
+        degreeShift: "stagger(0,-5)",
+        duration: 700,
+        delay: 200,
+        easing: "quad.out"
+        // delay:        100,
+      };
+    }
+
+    const burst = new mojs.Burst({
+      parent: el,
+      left: 0,
+      top: 0,
+      radius: { 6: RADIUS - 7 },
+      angle: 45,
+      children: burstChildren
+    });
+
+    const timeline = new mojs.Timeline({ speed: 1.5 });
+    timeline.add(burst, circle, star);
+
+    el.addEventListener("click", function(e) {
+      const left = e.pageX - el.offsetLeft;
+      const top = e.pageY - el.offsetTop;
+      const coords = { left, top };
+
+      burst.tune(coords);
+      circle.tune(coords);
+      star.tune(coords);
+      timeline.replay();
+    });
+  }
+};
+
+import MojsHtml from "@/components/MojsHtml.vue";
+import MojsShape from "@/components/MojsShape.vue";
+import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
+import MojsBurst from "@/components/MojsBurst.vue";
+import MojsStar from "@/components/MojsStar.vue";
+import MojsStarryNight from "@/components/MojsStarryNight.vue";
 
 /* eslint-disable no-unused-vars */
 const Vuemo = {
@@ -675,6 +758,14 @@ const Vuemo = {
     Vue.directive("mojs-shape-swirl", MojsShapeSwirlDirective);
     Vue.directive("mojs-burst", MojsBurstDirective);
     Vue.directive("mojs-star", MojsStarDirective);
+    Vue.directive("mojs-star-burst", MojsStarBurstDirective);
+
+    Vue.component("MojsHtml", MojsHtml);
+    Vue.component("MojsShape", MojsShape);
+    Vue.component("MojsShapeSwirl", MojsShapeSwirl);
+    Vue.component("MojsBurst", MojsBurst);
+    Vue.component("MojsStar", MojsStar);
+    Vue.component("MojsStarryNight", MojsStarryNight);
   }
 };
 export default Vuemo;
