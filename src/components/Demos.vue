@@ -114,7 +114,7 @@ export default {
     >
     <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div v-mojs-html:[arg]="htmlOptions" /&gt;</pre>
+    <pre>&lt;div v-mojs-html:[arg]="htmlOptions" class="any-style" /&gt;</pre>
     <p>Script:</p>
     <pre>
 export default {
@@ -228,7 +228,7 @@ export default {
     >
     <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div v-mojs-burst:[arg]="burstOptions" /&gt;</pre>
+    <pre>&lt;div v-mojs-burst:[arg]="burstOptions" class="any-style" /&gt;</pre>
     <p>Script:</p>
     <pre>
 export default {
@@ -331,7 +331,7 @@ export default {
     >
     <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div v-mojs-shape:[arg]="shapeOptions" /&gt;</pre>
+    <pre>&lt;div v-mojs-shape:[arg]="shapeOptions" class="any-style" /&gt;</pre>
     <p>Script:</p>
     <pre>
 export default {
@@ -422,7 +422,7 @@ export default {
     >
     <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div v-mojs-shape-swirl:[arg]="shapeSwirlOptions" /&gt;</pre>
+    <pre>&lt;div v-mojs-shape-swirl:[arg]="shapeSwirlOptions" class="any-style" /&gt;</pre>
     <p>Script:</p>
     <pre>
 export default {
@@ -542,7 +542,8 @@ export default {
     <pre>
 &lt;button
   type=button
-  v-mojs-star-burst="{ burstShape: 'star' }" &gt;
+  v-mojs-star-burst="{ burstShape: 'star' }"
+  class="any-style" &gt;
   ⭐Star Burst⭐
 &lt;/button&gt;</pre
     >
