@@ -26,3 +26,7 @@ Using Vue.js:
 import Vuemo from '@azukisiromochi/vue-mo.js';
 Vue.use(Vuemo);
 ```
+
+## 🥗 License
+
+*vue-mo.js* is created under the [MIT](https://opensource.org/licenses/MIT) license.
