@@ -502,7 +502,10 @@ export default {
     <h4>⭐ Star</h4>
     <h5>🔖 References</h5>
     <p>
-      hoge hoge hoge
+      Created a Vue component based on the Mo.js's <a href="https://codepen.io/sol0mka/full/wWdRLk/" target="_blank" rel="noopener">CodePen example</a>.
+    </p>
+    <p>
+      By adding the vue directive `<i>v-mods-starburst</i>`, you can easily add star animation to clickable elements in your Vue.js application.
     </p>
     <mojs-starry-night
       class="play-ground starry-night-parent"
