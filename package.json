@@ -1,7 +1,7 @@
 {
   "name": "@azukisiromochi/vue-mo.js",
-  "version": "0.1.0",
-  "main":"dist/vue-mo.js.common.js",
+  "version": "0.2.0",
+  "main": "dist/vue-mo.js.common.js",
   "unpkg": "dist/vue-mo.js.umd.min.js",
   "jsdelivr": "dist/vue-mo.js.umd.min.js",
   "license": "MIT",
