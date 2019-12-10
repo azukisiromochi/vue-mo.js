@@ -1,10 +1,19 @@
 {
-  "name": "vue-mo.js",
+  "name": "@azukisiromochi/vue-mo.js",
   "version": "0.1.0",
-  "private": true,
+  "main":"dist/vue-mo.js.common.js",
+  "unpkg": "dist/vue-mo.js.umd.min.js",
+  "jsdelivr": "dist/vue-mo.js.umd.min.js",
+  "license": "MIT",
+  "author": "azukisiromochi",
+  "files": [
+    "dist"
+  ],
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-mo.js ./src/plugins/vuemo.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

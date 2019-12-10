@@ -9,13 +9,13 @@ A small wrapper for integrating Mo.js to Vue.js
 Using npm:
 
 ```
-$ npm i vue-mo.js
+$ npm i @azukisiromochi/vue-mo.js
 ```
 
 Using yarn:
 
 ```
-$ yarn add vue-mo.js
+$ yarn add @azukisiromochi/vue-mo.js
 ```
 
 ## 🔫 Usage
