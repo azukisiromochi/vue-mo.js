@@ -10,17 +10,17 @@
     <p>
       Using npm:
     </p>
-    <pre>$ npm i vue-mo.js</pre>
+    <pre>$ npm i @azukisiromochi/vue-mo.js</pre>
     <p>
       Using yarn:
     </p>
-    <pre>$ yarn add vue-mo.js</pre>
+    <pre>$ yarn add @azukisiromochi/vue-mo.js</pre>
     <h3>🔫 Usage</h3>
     <p>
       Using Vue.js:
     </p>
     <pre>
-import Vuemo from 'vue-mo.js'
+import Vuemo from '@azukisiromochi/vue-mo.js'
 Vue.use(Vuemo)</pre
     >
     <h3>🧹 Documentation</h3>
@@ -81,11 +81,14 @@ export default {
     <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
-&lt;mojs-html :options="htmlOptions" :is-replay-when-clicked="true" /&gt;</pre
+&lt;mojs-html
+  :options="htmlOptions"
+  :is-replay-when-clicked="true"
+  class="any-style" /&gt;</pre
     >
     <p>Script:</p>
     <pre>
-import MojsHtml from "mojs-html"
+import { MojsHtml } from "@azukisiromochi/vue-mo.js"
 export default {
   data() {
     return {
@@ -193,11 +196,14 @@ export default {
     <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
-&lt;mojs-burst :options="burstOptions" :is-replay-when-clicked="true" /&gt;</pre
+&lt;mojs-burst
+  :options="burstOptions"
+  :is-replay-when-clicked="true"
+  class="any-style" /&gt;</pre
     >
     <p>Script:</p>
     <pre>
-import MojsBurst from "mojs-burst"
+import { MojsBurst } from "@azukisiromochi/vue-mo.js"
 export default {
   data() {
     return {
@@ -296,11 +302,14 @@ export default {
     <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
-&lt;mojs-shape :options="shapeOptions" :is-replay-when-clicked="true" /&gt;</pre
+&lt;mojs-shape
+  :options="shapeOptions"
+  :is-replay-when-clicked="true"
+  class="any-style" /&gt;</pre
     >
     <p>Script:</p>
     <pre>
-import MojsShape from "mojs-shape"
+import { MojsShape } from "@azukisiromochi/vue-mo.js"
 export default {
   data() {
     return {
@@ -389,11 +398,14 @@ export default {
     <strong>Using custom components 🚅</strong>
     <p>Template:</p>
     <pre>
-&lt;mojs-shape-swirl :options="shapeSwirlOptions" :is-replay-when-clicked="true" /&gt;</pre
+&lt;mojs-shape-swirl
+  :options="shapeSwirlOptions"
+  :is-replay-when-clicked="true"
+  class="any-style" /&gt;</pre
     >
     <p>Script:</p>
     <pre>
-import MojsShapeSwirl from "mojs-shape-swirl"
+import { MojsShapeSwirl } from "@azukisiromochi/vue-mo.js"
 export default {
   data() {
     return {
@@ -538,10 +550,7 @@ export default {
 </template>
 
 <script>
-import MojsHtml from "@/components/MojsHtml.vue";
-import MojsShape from "@/components/MojsShape.vue";
-import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
-import MojsStarryNight from "@/components/MojsStarryNight.vue";
+import { MojsHtml, MojsShape, MojsShapeSwirl, MojsStarryNight } from "@/plugins/vuemo.js";
 
 export default {
   name: "Demos",
