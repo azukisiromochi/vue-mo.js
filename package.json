@@ -1,6 +1,6 @@
 {
   "name": "@azukisiromochi/vue-mo.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/vue-mo.js.common.js",
   "unpkg": "dist/vue-mo.js.umd.min.js",
   "jsdelivr": "dist/vue-mo.js.umd.min.js",
@@ -19,7 +19,7 @@
     "mo.js",
     "motion",
     "effects",
-    "animation"    
+    "animation"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
