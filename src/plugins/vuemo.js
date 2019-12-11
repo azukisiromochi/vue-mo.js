@@ -732,12 +732,12 @@ const MojsStarBurstDirective = {
   }
 };
 
-import MojsHtml from "@/components/MojsHtml.vue";
-import MojsShape from "@/components/MojsShape.vue";
-import MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
-import MojsBurst from "@/components/MojsBurst.vue";
-import MojsStar from "@/components/MojsStar.vue";
-import MojsStarryNight from "@/components/MojsStarryNight.vue";
+import _MojsHtml from "@/components/MojsHtml.vue";
+import _MojsShape from "@/components/MojsShape.vue";
+import _MojsShapeSwirl from "@/components/MojsShapeSwirl.vue";
+import _MojsBurst from "@/components/MojsBurst.vue";
+import _MojsStar from "@/components/MojsStar.vue";
+import _MojsStarryNight from "@/components/MojsStarryNight.vue";
 
 /* eslint-disable no-unused-vars */
 const Vuemo = {
@@ -760,12 +760,18 @@ const Vuemo = {
     Vue.directive("mojs-star", MojsStarDirective);
     Vue.directive("mojs-star-burst", MojsStarBurstDirective);
 
-    Vue.component("MojsHtml", MojsHtml);
-    Vue.component("MojsShape", MojsShape);
-    Vue.component("MojsShapeSwirl", MojsShapeSwirl);
-    Vue.component("MojsBurst", MojsBurst);
-    Vue.component("MojsStar", MojsStar);
-    Vue.component("MojsStarryNight", MojsStarryNight);
+    Vue.component("MojsHtml", _MojsHtml);
+    Vue.component("MojsShape", _MojsShape);
+    Vue.component("MojsShapeSwirl", _MojsShapeSwirl);
+    Vue.component("MojsBurst", _MojsBurst);
+    Vue.component("MojsStar", _MojsStar);
+    Vue.component("MojsStarryNight", _MojsStarryNight);
   }
 };
 export default Vuemo;
+export const MojsHtml = _MojsHtml;
+export const MojsShape = _MojsShape;
+export const MojsShapeSwirl = _MojsShapeSwirl;
+export const MojsBurst = _MojsBurst;
+export const MojsStar = _MojsStar;
+export const MojsStarryNight = _MojsStarryNight;

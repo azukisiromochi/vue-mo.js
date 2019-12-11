@@ -1,7 +1,7 @@
 {
   "name": "@azukisiromochi/vue-mo.js",
-  "version": "0.1.0",
-  "main":"dist/vue-mo.js.common.js",
+  "version": "1.0.0",
+  "main": "dist/vue-mo.js.common.js",
   "unpkg": "dist/vue-mo.js.umd.min.js",
   "jsdelivr": "dist/vue-mo.js.umd.min.js",
   "license": "MIT",
@@ -10,6 +10,10 @@
     "dist"
   ],
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azukisiromochi/vue-mo.js"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -34,7 +38,8 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "serialize-javascript": ">=2.1.1"
   },
   "eslintConfig": {
     "root": true,

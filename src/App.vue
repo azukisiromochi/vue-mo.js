@@ -9,7 +9,7 @@
 
 <script>
 import Demos from "./components/Demos.vue";
-import MojsBurst from "@/components/MojsBurst.vue";
+import { MojsBurst } from "@/plugins/vuemo.js";
 
 export default {
   name: "app",
