@@ -558,10 +558,6 @@ export default {
   ⭐Star Burst⭐
 &lt;/button&gt;</pre
     >
-    <h3>🙇 Thanks!!</h3>
-    <p>
-      Using npm:
-    </p>
     <footer>
       MIT Licensed | Copyright © 2019-present <a target="_blank" rel="noopener" href="https://twitter.com/azukisiromochi">@azukisiromochi</a>
     </footer>
