@@ -1,6 +1,6 @@
 # ✨ vue-mo.js ✨
 
-A small wrapper for integrating Mo.js to Vue.js
+A small wrapper for integrating mo.js to Vue.js
 
 ## 🧹 Demo & Documentation
 
@@ -39,11 +39,12 @@ Vue.use(Vuemo);
 
 アニメーションの学習をしているなかで、 JavaScript や CSS のアニメーションフレームワークをよく探していました。
 
-そこで出会ったのが Mo.js です。
+そこで出会ったのが mo.js です。
 
 さっそく Vue で利用しようとしたものの、 Vue 用のパッケージは少なく「プラグイン化するしかないかあ……」と思っていました。
+
 でも、どうせ作るなら npm パッケージとして公開してみよう！　ということでできたのが、この **vue-mo.js** です。
 
 Vue のコンポーネントを npm パッケージ化するのは初めてでしたが、なんとか公開することができました。
 
-そんな気持ち（やる気）にさせてくれた Mo.js と、その開発者さまに圧倒的感謝です！
+そんな気持ち（やる気）にさせてくれた mo.js と、その開発者さまに圧倒的感謝です！

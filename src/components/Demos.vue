@@ -3,7 +3,7 @@
     <h1>✨ vue-mo.js ✨</h1>
     <p>
       A small wrapper for integrating
-      <a href="https://mojs.github.io/" target="_blank" rel="noopener">Mo.js</a>
+      <a href="https://mojs.github.io/" target="_blank" rel="noopener">mo.js</a>
       to Vue.js
     </p>
     <h3>🏹 Installation</h3>
@@ -28,7 +28,7 @@ Vue.use(Vuemo)</pre
     <h4>⭐ Html</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's
+      Read mo.js's
       <a href="https://mojs.github.io/api/html/" target="_blank" rel="noopener"
         >Html References</a
       >
@@ -142,7 +142,7 @@ export default {
     <h4>⭐ Burst</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's
+      Read mo.js's
       <a href="https://mojs.github.io/api/burst/" target="_blank" rel="noopener"
         >Burst References</a
       >
@@ -255,7 +255,7 @@ export default {
     <h4>⭐ Shape</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's
+      Read mo.js's
       <a href="https://mojs.github.io/api/shape/" target="_blank" rel="noopener"
         >Shape References</a
       >
@@ -355,7 +355,7 @@ export default {
     <h4>⭐ ShapeSwirl</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's
+      Read mo.js's
       <a
         href="https://mojs.github.io/api/shape-swirl/"
         target="_blank"
@@ -445,7 +445,7 @@ export default {
     <h4>⭐ Timeline</h4>
     <h5>🔖 References</h5>
     <p>
-      Read Mo.js's
+      Read mo.js's
       <a
         href="https://mojs.github.io/api/tweens/timeline.html"
         target="_blank"
@@ -518,7 +518,7 @@ export default {
     <h4>⭐ Star</h4>
     <h5>🔖 References</h5>
     <p>
-      Created a Vue component based on the Mo.js's
+      Created a Vue component based on the mo.js's
       <a
         href="https://codepen.io/sol0mka/full/wWdRLk/"
         target="_blank"
