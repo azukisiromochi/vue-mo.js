@@ -34,7 +34,7 @@ Vue.use(Vuemo)</pre
       >
     </p>
     <h5>🔖 Demos</h5>
-    <div class="play-ground">
+    <div class="play-ground" ref="mojsHtmlPlayGround">
       <mojs-html
         class="mojs-html"
         :options="htmlOptions"
@@ -422,7 +422,11 @@ export default {
     >
     <strong>Using custom directives 🚅</strong>
     <p>Template:</p>
-    <pre>&lt;div v-mojs-shape-swirl:[arg]="shapeSwirlOptions" class="any-style" /&gt;</pre>
+    <pre>
+&lt;div
+  v-mojs-shape-swirl:[arg]="shapeSwirlOptions"
+  class="any-style" /&gt;</pre
+    >
     <p>Script:</p>
     <pre>
 export default {
@@ -514,10 +518,17 @@ export default {
     <h4>⭐ Star</h4>
     <h5>🔖 References</h5>
     <p>
-      Created a Vue component based on the Mo.js's <a href="https://codepen.io/sol0mka/full/wWdRLk/" target="_blank" rel="noopener">CodePen example</a>.
+      Created a Vue component based on the Mo.js's
+      <a
+        href="https://codepen.io/sol0mka/full/wWdRLk/"
+        target="_blank"
+        rel="noopener"
+        >CodePen example</a
+      >.
     </p>
     <p>
-      By adding the vue directive `<i>v-mods-starburst</i>`, you can easily add star animation to clickable elements in your Vue.js application.
+      By adding the vue directive `<i>v-mods-starburst</i>`, you can easily add
+      star animation to clickable elements in your Vue.js application.
     </p>
     <mojs-starry-night
       class="play-ground starry-night-parent"
@@ -547,11 +558,23 @@ export default {
   ⭐Star Burst⭐
 &lt;/button&gt;</pre
     >
+    <h3>🙇 Thanks!!</h3>
+    <p>
+      Using npm:
+    </p>
+    <footer>
+      MIT Licensed | Copyright © 2019-present <a target="_blank" rel="noopener" href="https://twitter.com/azukisiromochi">@azukisiromochi</a>
+    </footer>
   </div>
 </template>
 
 <script>
-import { MojsHtml, MojsShape, MojsShapeSwirl, MojsStarryNight } from "@/plugins/vuemo.js";
+import {
+  MojsHtml,
+  MojsShape,
+  MojsShapeSwirl,
+  MojsStarryNight
+} from "@/plugins/vuemo.js";
 
 export default {
   name: "Demos",
@@ -559,7 +582,7 @@ export default {
     return {
       htmlOptions: {
         x: {
-          240: 720,
+          0: 200,
           duration: 1000,
           easing: "cubic.in"
         },
@@ -610,6 +633,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$refs.mojsHtmlPlayGround);
     // Burst Demos
     const COLORS = {
       RED: "#FD5061",
@@ -784,11 +808,26 @@ pre {
   border-radius: 6px;
   filter: drop-shadow(5px 5px 10px #666);
 }
+@media screen and (max-width: 480px) {
+  pre {
+    font-size: 0.5em;
+    padding-left: 20px;
+    max-width: 90%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 780px) {
+  pre {
+    font-size: 0.6em;
+    padding-left: 40px;
+    max-width: 85%;
+  }
+}
 
 .play-ground {
   position: relative;
   margin: auto;
   margin-bottom: 40px;
+  max-width: 100%;
   width: 960px;
   height: 300px;
   background: #f8f8f8;
@@ -801,7 +840,18 @@ pre {
   position: absolute;
   width: 100px;
   height: 100px;
+  left: 35%;
   background: #41b883;
+}
+@media screen and (max-width: 480px) {
+  .mojs-html {
+    left: 10%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 780px) {
+  .mojs-html {
+    left: 30%;
+  }
 }
 
 .burst-parent {
@@ -815,5 +865,25 @@ pre {
 .starry-night-parent {
   z-index: 20;
   cursor: pointer;
+}
+
+footer {
+  border-top: 1px solid rgba(246,64,64,.5);
+  margin-top: 200px;
+  padding: 40px;
+  text-align: center;
+  font-size: small;
+}
+@media screen and (max-width: 480px) {
+  footer {
+    margin-top: 100px;
+    font-size: xx-small;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 780px) {
+  footer {
+    margin-top: 150px;
+    font-size: x-small;
+  }
 }
 </style>

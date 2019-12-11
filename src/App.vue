@@ -49,6 +49,11 @@ export default {
   color: #2c3e50;
   font-size: 1.5em;
 }
+@media screen and (max-width: 480px) {
+  #app {
+    font-size: 1.2em;
+  }
+}
 
 .container {
   text-align: left;
